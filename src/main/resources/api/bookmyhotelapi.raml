@@ -1,0 +1,240 @@
+#%RAML 1.0
+title: BookMyHotelAPI
+version: v1
+mediaType: 
+- application/json
+
+protocols:
+  - HTTPS
+baseUri: http://bookmyhotel.com
+
+types:
+  Error: !include types/Error.raml
+  Hotel: !include types/Hotel.raml
+  Registration: !include types/Registration.raml
+  Booking: !include types/Booking.raml
+  Status: !include types/Status.raml
+traits:
+  clientIdEnforcement: !include traits/clientidenforcement.raml
+/registrations:
+  is:
+    - clientIdEnforcement
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            type: Registration[]
+      404:
+        headers:
+          Content-Type:
+        body:
+          type: Error
+              
+  post:
+    headers:
+      Content-Type: 
+    body:
+      type: Registration
+    responses:
+      201:
+        headers:
+          Location:
+            example:
+              http://bookmyhotel.com/registrations/r1
+      500:
+        headers:
+          Content-Type:
+        body:
+          type: Error
+                  
+  /{registationId}:
+    is:
+    - clientIdEnforcement
+    get:
+      headers:
+        Accept?: 
+      responses:
+        200:
+          body:
+            application/json:
+              type: Registration
+        404:
+          headers:
+            Content-Type:
+          body:
+            type: Error
+          
+    patch:
+      body:
+        type: Registration
+      responses:
+        204:
+        500:
+          headers:
+            Content-Type:
+          body:
+            type: Error
+    delete:
+      responses:
+        200:
+          body:
+            type: Status
+        404:
+          body:
+            type: Error
+   
+/hotels:
+  is:
+    - clientIdEnforcement
+  get:
+    queryParameters:
+      city:
+        required: false
+      state:
+        required: false
+      country:
+        required: false
+    responses:
+      200:
+        body:
+          application/json:
+            type: Hotel[]
+      404:
+        headers:
+          Content-Type:
+        body:
+          type: Error
+
+  post:
+    body:
+      type: Hotel
+    responses:
+      201:
+        headers:
+          Location:
+            example:
+              http://bookmyhotel.com/hotels/h1
+      500:
+        headers:
+          Content-Type:
+        body:
+          type: Error
+            
+  /{hotelId}:
+    is:
+    - clientIdEnforcement
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              type: Hotel
+        404:
+          headers:
+            Content-Type:
+          body:
+            type: Error
+            
+              
+    patch:
+      body:
+        type: Hotel
+      responses:
+        204:
+        500:
+          headers:
+            Content-Type:
+          body:
+            type: Error
+                
+    delete:
+      responses:
+        200:
+          body:
+            application/json:
+              type: Status
+        404:
+          headers:
+            Content-Type:
+          body:
+            type: Error
+    /bookings:
+      get:
+        responses:
+          200:
+            body:
+              application/json:
+                type: Booking[]
+          404:
+            headers:
+              Content-Type:
+            body:
+              type: Error
+/bookings:
+  is:
+    - clientIdEnforcement
+  get:
+    responses:
+      200:
+          body:
+            application/json:
+              type: Booking[]
+      404:
+        headers:
+          Content-Type:
+        body:
+          type: Error
+
+  post:
+    body:
+      type: Booking
+    responses:
+      201:
+        headers:
+          Location:
+            example:
+              http://bookmyhotel.com/bookings/b1
+      500:
+        headers:
+          Content-Type:
+        body:
+          type: Error
+          
+  /{bookingId}:
+    is:
+    - clientIdEnforcement
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              type: Booking
+        404:
+          headers:
+            Content-Type:
+          body:
+            type: Error
+            
+    patch:
+      body:
+        type: Booking
+      responses:
+        204:
+        500:
+          headers:
+            Content-Type:
+          body:
+            type: Error
+            
+    delete:
+      responses:
+        200:
+          body:
+            application/json:
+              type: Status
+        404:
+          headers:
+            Content-Type:
+          body:
+            type: Error
