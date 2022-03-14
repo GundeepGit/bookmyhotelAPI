@@ -32,7 +32,7 @@
 				<configuration>
 					<cloudHubDeployment>
 						<muleVersion>4.4.0</muleVersion>
-						<username>gundeeptraining3</username>
+						<username>gundeeptraining4</username>
 						<password>Anypoint@242</password>
 						<applicationName>bookmyhotelapi</applicationName>
 						<environment>sandbox</environment>
