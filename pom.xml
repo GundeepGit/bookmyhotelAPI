@@ -34,7 +34,7 @@
 						<username>gundeeptraining4</username>
 						<password>Anypoint@242</password>
 						<applicationName>bookmyhotelapi</applicationName>
-						<environment>sandbox</environment>
+						<environment>Sandbox</environment>
 						<objectStoreV2>true</objectStoreV2>
 					</cloudHubDeployment>
 					<classifier>mule-application</classifier>
