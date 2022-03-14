@@ -31,11 +31,11 @@
 				<extensions>true</extensions>
 				<configuration>
 					<cloudHubDeployment>
-						<muleVersion>${app.runtime}</muleVersion>
-						<username>${username}</username>
-						<password>${password}</password>
-						<applicationName>${cloudhub.application.name}</applicationName>
-						<environment>${environment}</environment>
+						<muleVersion>4.4.0</muleVersion>
+						<username>gundeeptraining3</username>
+						<password>Anypoint@242</password>
+						<applicationName>bookmyhotelapi</applicationName>
+						<environment>sandbox</environment>
 						<objectStoreV2>true</objectStoreV2>
 					</cloudHubDeployment>
 					<classifier>mule-application</classifier>
