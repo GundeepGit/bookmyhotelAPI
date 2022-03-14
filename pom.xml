@@ -12,7 +12,6 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
 		<app.runtime>4.4.0</app.runtime>
 		<mule.maven.plugin.version>3.5.2</mule.maven.plugin.version>
 	</properties>
@@ -68,13 +67,6 @@
 			<artifactId>mule-objectstore-connector</artifactId>
 			<version>1.2.1</version>
 			<classifier>mule-plugin</classifier>
-		</dependency>
-		<dependency>
-			<groupId>b9872933-1392-4860-84df-c9d0c2037f3e</groupId>
-			<artifactId>bookmyhotelapi</artifactId>
-			<version>1.0.1</version>
-			<classifier>raml</classifier>
-			<type>zip</type>
 		</dependency>
 	</dependencies>
 
