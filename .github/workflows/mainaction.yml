@@ -33,12 +33,12 @@ jobs:
         with:
           java-version: 8
           distribution: 'adopt'
-      - name: Build with Maven
+      - name: Build and deploy with Maven
         run: mvn clean -B package deploy -DmuleDeploy --file pom.xml
       - name: Upload artifact
         uses: actions/upload-artifact@master
         with:
-          name: artifacts
+          name: muleArtifacts
           path: target/*.jar
           
 
