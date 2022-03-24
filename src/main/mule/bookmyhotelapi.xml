@@ -317,7 +317,7 @@ now() as String {format : "01/MM/yyyy HH:mm:ss"}]]]></os:default-value>
 output application/json
 ---
 {
-  bookingId: "b1",
+  bookingId: "b2",
   bookingStartDate: vars.bookingStartDate,
   bookingEndDate: "2020-09-15",
   amenitiesSelected: [
