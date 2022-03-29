@@ -40,7 +40,7 @@ jobs:
         env:
           SONAR_TKN: ${{ secrets.SONAR_TKN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-packaging-maven-plugin:1.17:sonar -Dsonar.projectKey=bookmyhotelAPI
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=bookmyhotelAPI
 
   buildanddeploy:
     needs: [build]
